@@ -17,16 +17,35 @@
     "egg-validate-plus": "^1.1.6"
   },
   "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
     "egg-bin": "^4.11.0",
     "egg-ci": "^1.11.0",
     "egg-mock": "^3.21.0",
     "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0"
+    "eslint-config-egg": "^7.1.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
   },
   "engines": {
     "node": ">=10.0.0"
+  },
+  "lint-staged": {
+    "app/**/*.js": [
+      "eslint --fix --ext .js",
+      "prettier -c --write ./**/*.js",
+      "git add ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-todo-server",
@@ -38,7 +57,8 @@
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
-    "autod": "autod"
+    "autod": "autod",
+    "precommit": "lint-staged"
   },
   "ci": {
     "version": "10"

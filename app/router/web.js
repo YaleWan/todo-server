@@ -5,9 +5,9 @@
  * @LastEditors: yhwang
  * @LastEditTime: 2020-06-29 18:25:49
  */
-'use strict';
+"use strict";
 module.exports = app => {
   const { router, controller } = app;
-  const AdminRouter = router.namespace('/api/v1/admin/');
-  AdminRouter.resources('user', controller.user);
+  const AdminRouter = router.namespace("/api/v1/admin/");
+  AdminRouter.resources("user", controller.user);
 };

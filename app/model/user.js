@@ -5,7 +5,7 @@
  * @LastEditors: yhwang
  * @LastEditTime: 2020-06-29 17:27:37
  */
-'use strict';
+"use strict";
 module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
@@ -15,24 +15,24 @@ module.exports = app => {
       // 账号名
       account: {
         type: String,
-        required: true,
+        required: true
       },
       // 密码
       password: {
         type: String,
-        required: [ true, '密码必填' ],
+        required: [true, "密码必填"]
       },
       // 真实姓名
-      real_name: { type: String },
+      real_name: { type: String }
     },
     {
       timestamps: {
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
+        createdAt: "created_at",
+        updatedAt: "updated_at"
       },
       versionKey: false,
-      collection: 'armor_admin_user',
+      collection: "armor_admin_user"
     }
   );
-  return mongoose.model('AdminUser', AdminUserSchema);
+  return mongoose.model("AdminUser", AdminUserSchema);
 };

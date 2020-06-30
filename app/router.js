@@ -6,8 +6,8 @@
  * @LastEditTime: 2020-06-29 17:22:59
  */
 
-'use strict';
+"use strict";
 
 module.exports = app => {
-  require('./router/web')(app);
+  require("./router/web")(app);
 };
